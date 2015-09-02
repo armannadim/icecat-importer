@@ -42,6 +42,7 @@ public class Messenger {
 	
 	public static final String BIG_IMPORT_MESSAGE = "A big ammount of products will be imported...\nGo and take a coup of coffee that this operation will take some minutes...";
 
+        public static final String TOTAL_NUMBER_OF_PRODUCTS = "There are %d products available to import.";
 	
 	
 	public static void productsNotIncludedMessage() {

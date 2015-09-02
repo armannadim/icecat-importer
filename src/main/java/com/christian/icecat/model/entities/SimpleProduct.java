@@ -15,163 +15,194 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
-@Table(name="Product")
-public class SimpleProduct{
-	
-	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable(joinColumns = {@JoinColumn(name = "product_id")}, inverseJoinColumns = {@JoinColumn(name = "category_id")})
+@Table(name = "Product")
+public class SimpleProduct {
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(joinColumns = {
+        @JoinColumn(name = "product_id")}, inverseJoinColumns = {
+        @JoinColumn(name = "category_id")})
     private Set<SimpleCategory> categories;
-	
-	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable(joinColumns = {@JoinColumn(name = "product_id")}, inverseJoinColumns = {@JoinColumn(name = "description_id")})
-	private Set<SimpleDescription> descriptions;
-	
-	@ManyToMany(cascade=CascadeType.ALL)
-	@JoinTable(joinColumns = {@JoinColumn(name = "product_id")}, inverseJoinColumns = {@JoinColumn(name = "categoryFeatureGroup_id")})
-	private Set<SimpleCategoryFeatureGroup> categoryFeatureGroups;
-	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(joinColumns = {@JoinColumn(name = "product_id")}, inverseJoinColumns = {@JoinColumn(name = "productFeature_id")})
-	private Set<SimpleProductFeature> productFeatures;
-	
-	@ManyToMany(cascade = CascadeType.ALL)
-	@JoinTable(joinColumns = {@JoinColumn(name = "product_id")}, inverseJoinColumns = {@JoinColumn(name = "productRelated_id")})
-	private Set<SimpleProductRelated> productsRelated;
-	
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "supplier_id")
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(joinColumns = {
+        @JoinColumn(name = "product_id")}, inverseJoinColumns = {
+        @JoinColumn(name = "description_id")})
+    private Set<SimpleDescription> descriptions;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(joinColumns = {
+        @JoinColumn(name = "product_id")}, inverseJoinColumns = {
+        @JoinColumn(name = "categoryFeatureGroup_id")})
+    private Set<SimpleCategoryFeatureGroup> categoryFeatureGroups;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(joinColumns = {
+        @JoinColumn(name = "product_id")}, inverseJoinColumns = {
+        @JoinColumn(name = "productFeature_id")})
+    private Set<SimpleProductFeature> productFeatures;
+
+    @ManyToMany(cascade = CascadeType.ALL)
+    @JoinTable(joinColumns = {
+        @JoinColumn(name = "product_id")}, inverseJoinColumns = {
+        @JoinColumn(name = "productRelated_id")})
+    private Set<SimpleProductRelated> productsRelated;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "supplier_id")
     private SimpleSupplier supplier;
-	
+
     @Id
-    @Column(name="product_id")
+    @Column(name = "product_id")
     private long id;
-    
-	@Column
+
+    @Column
     private String highPic;
-    
+
     @Column
     private String name;
-    
+
     @Column
     private String quality;
-    
-    @Column 
+
+    @Column
     private String title;
-    
+
     @Column
     private Date releaseDate;
-    
-    @Column 
+
+    @Column
     private Date updateDate;
+
+    /*NADIM*/
+    @Column
+    private String lowPic;
+    
+     public String getLowPic() {
+        return lowPic;
+    }
+
+    public void setLowPic(String lowPic) {
+        this.lowPic = lowPic;
+    }
     
     
-	public String getHighPic() {
-		return highPic;
-	}
+    @Column
+    private String thumbPic;
+    
+     public String getThumbPic() {
+        return thumbPic;
+    }
 
-	public void setHighPic(String highPic) {
-		this.highPic = highPic;
-	}
+    public void setThumbPic(String thumbPic) {
+        this.thumbPic = thumbPic;
+    }
+    /*END NADIM */
+    public String getHighPic() {
+        return highPic;
+    }
 
-	public String getName() {
-		return name;
-	}
+    public void setHighPic(String highPic) {
+        this.highPic = highPic;
+    }
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getQuality() {
-		return quality;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setQuality(String quality) {
-		this.quality = quality;
-	}
+    public String getQuality() {
+        return quality;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public void setQuality(String quality) {
+        this.quality = quality;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public Date getReleaseDate() {
-		return releaseDate;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public void setReleaseDate(Date releaseDate) {
-		this.releaseDate = releaseDate;
-	}
+    public Date getReleaseDate() {
+        return releaseDate;
+    }
 
-	public Set<SimpleCategory> getCategories() {
-		if(categories == null){
-			categories = new HashSet<>();
-		}
-		return categories;
-	}
+    public void setReleaseDate(Date releaseDate) {
+        this.releaseDate = releaseDate;
+    }
 
-	public void setCategories(Set<SimpleCategory> categories) {
-		this.categories = categories;
-	}
+    public Set<SimpleCategory> getCategories() {
+        if (categories == null) {
+            categories = new HashSet<>();
+        }
+        return categories;
+    }
 
-	public long getId() {
-		return id;
-	}
+    public void setCategories(Set<SimpleCategory> categories) {
+        this.categories = categories;
+    }
 
-	public void setId(long id) {
-		this.id = id;
-	}
+    public long getId() {
+        return id;
+    }
 
-	public Set<SimpleDescription> getDescriptions() {
-		return descriptions;
-	}
+    public void setId(long id) {
+        this.id = id;
+    }
 
-	public void setDescriptions(Set<SimpleDescription> descriptions) {
-		this.descriptions = descriptions;
-	}
+    public Set<SimpleDescription> getDescriptions() {
+        return descriptions;
+    }
 
-	public Set<SimpleCategoryFeatureGroup> getCategoryFeatureGroups() {
-		return categoryFeatureGroups;
-	}
+    public void setDescriptions(Set<SimpleDescription> descriptions) {
+        this.descriptions = descriptions;
+    }
 
-	public void setCategoryFeatureGroups(Set<SimpleCategoryFeatureGroup> categoryFeatureGroups) {
-		this.categoryFeatureGroups = categoryFeatureGroups;
-	}
+    public Set<SimpleCategoryFeatureGroup> getCategoryFeatureGroups() {
+        return categoryFeatureGroups;
+    }
 
-	public Set<SimpleProductFeature> getProductFeatures() {
-		return productFeatures;
-	}
+    public void setCategoryFeatureGroups(Set<SimpleCategoryFeatureGroup> categoryFeatureGroups) {
+        this.categoryFeatureGroups = categoryFeatureGroups;
+    }
 
-	public void setProductFeatures(Set<SimpleProductFeature> productFeatures) {
-		this.productFeatures = productFeatures;
-	}
+    public Set<SimpleProductFeature> getProductFeatures() {
+        return productFeatures;
+    }
 
-	public Set<SimpleProductRelated> getProductsRelated() {
-		return productsRelated;
-	}
+    public void setProductFeatures(Set<SimpleProductFeature> productFeatures) {
+        this.productFeatures = productFeatures;
+    }
 
-	public void setProductsRelated(Set<SimpleProductRelated> productsRelated) {
-		this.productsRelated = productsRelated;
-	}
+    public Set<SimpleProductRelated> getProductsRelated() {
+        return productsRelated;
+    }
 
-	public SimpleSupplier getSupplier() {
-		return supplier;
-	}
+    public void setProductsRelated(Set<SimpleProductRelated> productsRelated) {
+        this.productsRelated = productsRelated;
+    }
 
-	public void setSupplier(SimpleSupplier supplier) {
-		this.supplier = supplier;
-	}
+    public SimpleSupplier getSupplier() {
+        return supplier;
+    }
 
-	public Date getUpdateDate() {
-		return updateDate;
-	}
+    public void setSupplier(SimpleSupplier supplier) {
+        this.supplier = supplier;
+    }
 
-	public void setUpdateDate(Date updateDate) {
-		this.updateDate = updateDate;
-	}
+    public Date getUpdateDate() {
+        return updateDate;
+    }
 
+    public void setUpdateDate(Date updateDate) {
+        this.updateDate = updateDate;
+    }
 
-	
 }

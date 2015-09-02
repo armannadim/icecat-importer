@@ -18,6 +18,7 @@ public class IcecatFile {
 	private String update;
 	private String quality;
 	private String onMarket;
+        private String catId;
 	
 	@XmlAttribute(name = "Product_ID")
 	public long getProductId() {
@@ -51,6 +52,17 @@ public class IcecatFile {
 		this.onMarket = onMarket;
 	}
 	
+        /*NADIM*/
+        @XmlAttribute(name = "Catid")
+	public String getCatId() {
+		return catId;
+	}
+	public void setCatId(String catId) {
+		this.catId = catId;
+	}
+        /*END NADIM*/
+        
+        
 	@Override
 	public String toString() {
 		return String.format("Prod-ID: %s \nUpdate: %s\nQuality: %s",  productId, update, quality);

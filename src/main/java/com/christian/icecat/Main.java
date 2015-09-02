@@ -13,6 +13,7 @@ public class Main {
 	
 	public static void main(String... args){
 		CommandLineView view = new CommandLineView();
+                configProperties.init();
 		view.run();
 	}
 	

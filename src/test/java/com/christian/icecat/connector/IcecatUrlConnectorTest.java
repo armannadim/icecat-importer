@@ -6,7 +6,7 @@ import org.junit.Test;
 import com.christian.icecat.exceptions.IcecatConnectionException;
 
 public class IcecatUrlConnectorTest {
-	private static final String URL = "https://data.icecat.biz/export/freexml/NL/";
+	private static final String URL = "https://data.icecat.biz/export/freexml/ES/";
 	private static final String PWD = "a_password";
 	private static final String USER = "christian_roman" ;
 	private IcecatURLConnector connector;

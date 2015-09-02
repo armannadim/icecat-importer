@@ -31,7 +31,11 @@ public class IcecatProductParser extends AbstractIcecatParser<ICECATInterface> {
 		
 		if(connector instanceof IcecatURLConnector){
 			IcecatURLConnector iceConn = (IcecatURLConnector)connector;
-			String tempUrl = iceConn.getUrl();
+                        /* NADIM */                        
+			String tempUrl = iceConn.getUrl().substring(0, iceConn.getUrl().lastIndexOf("/")+1);
+                        /*ORG*/
+                        //String tempUrl = iceConn.getUrl();                        
+                        /*END NADIM */
 			String newUrl = String.format("%s%d.xml", tempUrl, productId);
 			iceConn.setUrl(newUrl);
 		}

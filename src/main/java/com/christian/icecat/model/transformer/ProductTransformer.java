@@ -17,7 +17,7 @@ public class ProductTransformer implements Transformable<SimpleProduct, Product>
 		
 		if(product != null){
 			simpleProduct.setId(TransformerUtlity.idChecker(product.getID()));
-			simpleProduct.setHighPic(TransformerUtlity.bigStringVerifier(product.getHighPic()));
+			simpleProduct.setHighPic(TransformerUtlity.bigStringVerifier(product.getHighPic()));                        
 			simpleProduct.setName(TransformerUtlity.bigStringVerifier(product.getName()));
 			simpleProduct.setQuality(TransformerUtlity.bigStringVerifier(product.getQuality()));
 			simpleProduct.setTitle(TransformerUtlity.bigStringVerifier(product.getTitle()));
@@ -32,6 +32,16 @@ public class ProductTransformer implements Transformable<SimpleProduct, Product>
 			simpleProduct.setProductsRelated(TransformerUtlity.loop(product.getProductRelated(), new ProductRelatedTransformer()));
 			
 			simpleProduct.setSupplier(new SupplierTransformer().transform(product.getSupplier()));
+                        
+                        /*NADIM*/
+                        simpleProduct.setLowPic(TransformerUtlity.bigStringVerifier(product.getLowPic()));
+                        simpleProduct.setThumbPic(TransformerUtlity.bigStringVerifier(product.getThumbPic()));
+                        simpleProduct.setLowPic(TransformerUtlity.bigStringVerifier(product.getLowPic()));
+                        simpleProduct.setLowPic(TransformerUtlity.bigStringVerifier(product.getLowPic()));
+                        simpleProduct.setLowPic(TransformerUtlity.bigStringVerifier(product.getLowPic()));
+                        simpleProduct.setLowPic(TransformerUtlity.bigStringVerifier(product.getLowPic()));
+                        /*END NADIM*/
+                        
 		}
 		
 		return simpleProduct;
