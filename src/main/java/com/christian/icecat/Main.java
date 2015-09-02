@@ -7,7 +7,6 @@ import com.christian.icecat.view.CommandLineView;
  * from the command line.
  *  
  * @author christian
- * Modified by Nadim
  *
  */
 public class Main {
